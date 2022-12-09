@@ -18,11 +18,11 @@ activate {
 	syntax='off',
 	tabstop=4, shiftwidth=4, softtabstop=4, mouse='a',
 	'smarttab',
-	'smarttab',
 	'number',
 	'cursorline'
 }
 
 vim.cmd('colorscheme tokyonight-night')
+
 
 

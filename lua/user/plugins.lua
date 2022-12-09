@@ -38,9 +38,15 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 
 	-- git
-	--use {'akinsho/toggleterm.nvim', tag = '*', config = function()
-	--  require("toggleterm").setup()
-	--end}
+	use 'kdheepak/lazygit.nvim'
+	-- use {'akinsho/toggleterm.nvim', tag = '*', config = function()
+	--   require("toggleterm").setup()
+	-- end}
+
+	-- telescope
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+	}
 
 	-- startup time monitoring
 	use 'dstein64/vim-startuptime'
