@@ -1,6 +1,5 @@
 
-local map = vim.api.nvim_set_keymap
-map('n', 'gg', ':LazyGit<CR>', {})
+vim.api.nvim_set_keymap('n', 'gG', ':LazyGit<CR>', {})
 vim.g.lazygit_floating_window_corner_chars = {'┌', '┐', '└', '┘'}
 
 local telescope_ok, telescope = pcall(require, 'telescope.builtin')

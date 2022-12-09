@@ -40,3 +40,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 		lint.try_lint()
 	end,
 })
+
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+vim.keymap.set('n', 'fd', vim.lsp.buf.definition, {})
+vim.keymap.set('n', 'fD', vim.lsp.buf.declaration, {})
