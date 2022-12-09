@@ -41,6 +41,17 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-vim.keymap.set('n', 'fd', vim.lsp.buf.definition, {})
-vim.keymap.set('n', 'fD', vim.lsp.buf.declaration, {})
+local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
+if not lspsaga_ok then
+	return
+end
+
+lspsaga.init_lsp_saga()
+
+local keymap = vim.keymap.set
+keymap("n", "fD", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+keymap("n", "fd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+

@@ -33,6 +33,17 @@ return require('packer').startup(function(use)
 	-- lsps
 	use { 'williamboman/mason.nvim' }
 	use { 'neovim/nvim-lspconfig' }
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			local saga = require("lspsaga")
+
+			saga.init_lsp_saga({
+				-- your configuration
+			})
+		end,
+	})
 
 	-- themes
 	use 'folke/tokyonight.nvim'
