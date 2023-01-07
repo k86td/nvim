@@ -1,4 +1,3 @@
-
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 
@@ -7,19 +6,20 @@ return require('packer').startup(function(use)
 	use 'lewis6991/impatient.nvim'
 
 	-- tree-sitter
-	use {
-		'nvim-treesitter/nvim-treesitter',
-		run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-	}
+	-- use { -- currently broken...
+	-- 	'nvim-treesitter/nvim-treesitter',
+	-- 	run = function()
+	-- 		local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+	-- 		ts_update()
+	-- 	end,
+	-- 	version = "0.7.2"
+	-- }
 
 	-- snippets
 	use 'L3MON4D3/LuaSnip'
 
 	-- completion libraries
-	use "ii14/emmylua-nvim" -- neovim 
+	use "ii14/emmylua-nvim" -- neovim
 
 	-- linter
 	use 'mfussenegger/nvim-lint'
@@ -56,12 +56,17 @@ return require('packer').startup(function(use)
 
 	-- telescope
 	use { 'nvim-telescope/telescope.nvim', tag = '0.1.0',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 
 	-- startup time monitoring
 	use 'dstein64/vim-startuptime'
 
+	-- comments
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup()
+		end
+	}
 end)
-
-

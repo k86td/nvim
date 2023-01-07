@@ -1,6 +1,5 @@
-
-local function activate (func)
-  	if type(func) == 'table' then
+local function activate(func)
+	if type(func) == 'table' then
 		for ind, val in pairs(func) do
 			if type(ind) == 'number' then
 				vim.opt[val] = true
@@ -15,14 +14,11 @@ local function activate (func)
 end
 
 activate {
-	syntax='off',
-	tabstop=4, shiftwidth=4, softtabstop=4, mouse='a',
+	syntax = 'off',
+	tabstop = 4, shiftwidth = 4, softtabstop = 4, mouse = 'a',
 	'smarttab',
 	'number',
 	'cursorline'
 }
 
 vim.cmd('colorscheme tokyonight-night')
-
-
-

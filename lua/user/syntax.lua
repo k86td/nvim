@@ -1,4 +1,3 @@
-
 local ts_status_ok, treesitter = pcall(require, 'nvim-treesitter.configs')
 if not ts_status_ok then
 	return
@@ -12,4 +11,3 @@ treesitter.setup {
 		enable = true
 	}
 }
-
