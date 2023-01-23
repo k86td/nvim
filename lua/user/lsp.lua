@@ -18,6 +18,7 @@ local servers = {
 	'pyright',
 	'rust_analyzer',
 	'ansiblels',
+	'csharp_ls',
 }
 for _, lsp in pairs(servers) do
 	lspconfig[lsp].setup {
@@ -54,6 +55,8 @@ keymap("n", "fD", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 keymap("n", "fd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+
+keymap("n", "<leader>.", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
 vim.api.nvim_set_keymap('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>d[', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
