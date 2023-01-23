@@ -6,14 +6,13 @@ return require('packer').startup(function(use)
 	use 'lewis6991/impatient.nvim'
 
 	-- tree-sitter
-	-- use { -- currently broken...
-	-- 	'nvim-treesitter/nvim-treesitter',
-	-- 	run = function()
-	-- 		local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-	-- 		ts_update()
-	-- 	end,
-	-- 	version = "0.7.2"
-	-- }
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+			ts_update()
+		end,
+	}
 
 	-- snippets
 	use 'L3MON4D3/LuaSnip'
@@ -68,5 +67,13 @@ return require('packer').startup(function(use)
 		config = function()
 			require('Comment').setup()
 		end
+	}
+
+	-- file explorer
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+		},
 	}
 end)
