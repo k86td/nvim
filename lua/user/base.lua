@@ -21,4 +21,6 @@ activate {
 	'cursorline'
 }
 
-vim.cmd('colorscheme tokyonight-night')
+vim.cmd('colorscheme moonbow')
+
+vim.cmd('set laststatus=0')

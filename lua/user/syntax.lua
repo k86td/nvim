@@ -4,7 +4,7 @@ if not ts_status_ok then
 end
 
 treesitter.setup {
-	ensure_installed = { "lua", "vim", "javascript" },
+	ensure_installed = { "lua", "vim", "javascript", "markdown" },
 	sync_install = true,
 	highlight = {
 		enable = true,

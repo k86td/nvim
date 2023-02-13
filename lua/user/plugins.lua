@@ -36,16 +36,14 @@ return require('packer').startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = function()
-			local saga = require("lspsaga")
-
-			saga.init_lsp_saga({
-				-- your configuration
-			})
+			require("lspsaga").setup({})
 		end,
+		requires = { { "nvim-tree/nvim-web-devicons" } }
 	})
 
 	-- themes
 	use 'folke/tokyonight.nvim'
+	use { "arturgoms/moonbow.nvim" }
 
 	-- git
 	use 'kdheepak/lazygit.nvim'
@@ -70,10 +68,25 @@ return require('packer').startup(function(use)
 	}
 
 	-- file explorer
+	-- use {
+	-- 	'nvim-tree/nvim-tree.lua',
+	-- 	requires = {
+	-- 		'nvim-tree/nvim-web-devicons', -- optional, for file icons
+	-- 	},
+	-- }
 	use {
-		'nvim-tree/nvim-tree.lua',
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
 		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional, for file icons
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
 		},
+		config = function()
+			require("neo-tree").setup()
+		end
 	}
+
+	-- icons
+	use 'nvim-tree/nvim-web-devicons'
 end)

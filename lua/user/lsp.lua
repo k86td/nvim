@@ -13,7 +13,7 @@ end
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
 local servers = {
-	'sumneko_lua',
+	'lua_ls',
 	'tsserver',
 	'pyright',
 	'rust_analyzer',
@@ -47,8 +47,6 @@ local lspsaga_ok, lspsaga = pcall(require, 'lspsaga')
 if not lspsaga_ok then
 	return
 end
-
-lspsaga.init_lsp_saga()
 
 local keymap = vim.keymap.set
 keymap("n", "fD", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
