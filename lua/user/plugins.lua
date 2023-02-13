@@ -83,7 +83,60 @@ return require('packer').startup(function(use)
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
-			require("neo-tree").setup()
+			require("neo-tree").setup({
+				close_if_last_window = true,
+				enable_diagnostics = true,
+				sources = {
+					"filesystem",
+					"git_status",
+				},
+				source_selector = {
+					winbar = true,
+					content_layout = "center",
+					tab_labels = {
+						filesystem = " File",
+						git_status = " Git",
+						diagnostics = "󰃤 Bugs",
+					},
+				},
+				default_component_configs = {
+					indent = {
+						padding = 0,
+					},
+					icon = {
+						folder_closed = "",
+						folder_open = "",
+						folder_empty = "",
+					},
+					git_status = {
+						symbols = {
+							added = "",
+							deleted = "",
+							modified = "",
+							renamed = "",
+							untracked = "",
+							ignored = "",
+							unstaged = "",
+							staged = "",
+							conflict = "",
+						},
+					},
+				},
+				window = {
+					width = 30,
+					mappings = {
+						["o"] = "open",
+						["v"] = "open_vsplit",
+					},
+				},
+				filesystem = {
+					filtered_items = {
+						visible = true,
+						hide_dotfiles = false,
+						hide_gitignored = true,
+					},
+				},
+			})
 		end
 	}
 
